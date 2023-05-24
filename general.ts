@@ -43,3 +43,7 @@ function getKeyName(key: string) {
     const keys = key.split('.');
     return keys[keys.length - 1];
 }
+
+export function combineClassNames(...classes: string[]) {
+    return classes.filter(Boolean).join(' ')
+}
