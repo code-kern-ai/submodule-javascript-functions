@@ -47,3 +47,15 @@ function getKeyName(key: string) {
 export function combineClassNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
+
+const TRUE_VALUES = ['true', '1', 'yes', 'y', 'on', 'x'];
+
+export function isStringTrue(value: string): boolean {
+    if (!value) return false;
+    value = value.toLowerCase();
+    return TRUE_VALUES.includes(value);
+}
+
+export function copyToClipboard(textToCopy: string) {
+    navigator.clipboard.writeText(textToCopy);
+}
