@@ -32,3 +32,10 @@ export function snakeCaseToCamelCase(str: string) {
             .replace('_', '')
     );
 }
+
+export enum caseType {
+    LOWER,
+    UPPER,
+    CAPITALIZE_FIRST,
+    CAPITALIZE_FIRST_PER_WORD
+}
