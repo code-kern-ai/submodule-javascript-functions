@@ -144,3 +144,23 @@ function sortByEnumPos(e: any, arr: any[]) {
         return index1 - index2;
     });
 }
+
+const ESCAPE_CHARACTERS = ['\n', '\r', '\t'];
+const ESCAPE_CHARACTERS_STRING = ['\\n', '\\r', '\\t'];
+
+export function hasPreEscapeCharacters(str: string): boolean {
+    return ESCAPE_CHARACTERS.some(char => str.includes(char));
+}
+export function replaceStringEscapeCharacters(str: string, toEscaped: boolean = true): string {
+    if (toEscaped) {
+        ESCAPE_CHARACTERS.forEach((char, index) => {
+            str = str.replace(char, ESCAPE_CHARACTERS_STRING[index]);
+        });
+
+    } else {
+        ESCAPE_CHARACTERS_STRING.forEach((char, index) => {
+            str = str.replace(char, ESCAPE_CHARACTERS[index]);
+        });
+    }
+    return str;
+}
