@@ -103,7 +103,7 @@ export function tryParseJSON(str: string): any {
     }
 }
 
-export function formatBytes(bytes, decimals = 2) {
+export function formatBytes(bytes: number, decimals = 2) {
     if (bytes === 0) return '0 Bytes';
     const dm = decimals < 0 ? 0 : decimals;
     const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
@@ -115,25 +115,26 @@ export function formatBytes(bytes, decimals = 2) {
 export type enumToArrayOptions = {
     caseType?: caseType;
     prefix?: string;
-    nameFunction?: (name: string) => string;
+    nameFunction: (name: string) => string;
 }
 
-export function enumToArray(e: Object, options: enumToArrayOptions = null): any[] {
+export function enumToArray(e: Object, options: enumToArrayOptions | null = null): any[] {
     const arr = Object.values(e);
     if (!options) return sortByEnumPos(e, arr);
     let func;
-    if (options.caseType == caseType.LOWER) func = (x) => x.toLowerCase();
-    else if (options.caseType == caseType.UPPER) func = (x) => x.toUpperCase();
+    if (options.caseType == caseType.LOWER) func = (x: any) => x.toLowerCase();
+    else if (options.caseType == caseType.UPPER) func = (x: any) => x.toUpperCase();
     else if (options.caseType == caseType.CAPITALIZE_FIRST) func = capitalizeFirst;
     else if (options.caseType == caseType.CAPITALIZE_FIRST_PER_WORD) func = capitalizeFirstPerWord;
 
     if (func) return enumToArray(e, { prefix: options.prefix, nameFunction: func });
     if (!options.nameFunction) return sortByEnumPos(e, arr.map(x => ({ name: options.prefix + x, value: x })));
+
     return sortByEnumPos(e, arr.map(x => ({ name: (options.prefix ? options.prefix : "") + options.nameFunction(x), value: x })));
 }
 
-function sortByEnumPos(e: Object, arr: any[]) {
-    const order = [];
+function sortByEnumPos(e: any, arr: any[]) {
+    const order: string[] = [];
     for (let key in e) {
         order.push(key);
     }
