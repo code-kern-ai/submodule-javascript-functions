@@ -178,3 +178,10 @@ export function countOccurrences(str: string, search: string): number {
 export function removeArrayFromArray(mainArray: any[], arrayToRemove: any[]) {
     return mainArray.filter((element) => !arrayToRemove.includes(element));
 }
+
+
+export function objectIsEmpty(obj: any): boolean {
+    if (!obj) return true;
+    for (var i in obj) return false;
+    return true;
+}
