@@ -97,5 +97,5 @@ export function scrollElementIntoView(elementId: string, timeout?: number) {
 
     const element = document.getElementById(elementId);
     if (!element) console.warn("scrollElementIntoView elementId not found");
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
+    else element.scrollIntoView({ behavior: "smooth", block: "start" });
 }
