@@ -185,3 +185,11 @@ export function objectIsEmpty(obj: any): boolean {
     for (var i in obj) return false;
     return true;
 }
+
+export function getUserAvatarUri(user) {
+    let avatarId = 0;
+    if (user && user.firstName && user.lastName) {
+        avatarId = (user.firstName[0].charCodeAt(0) + user.lastName[0].charCodeAt(0)) % 5;
+    }
+    return avatarId + ".png";
+}
