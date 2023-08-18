@@ -115,7 +115,7 @@ export function formatBytes(bytes: number, decimals = 2) {
 export type enumToArrayOptions = {
     caseType?: caseType;
     prefix?: string;
-    nameFunction: (name: string) => string;
+    nameFunction?: (name: string) => string;
 }
 
 export function enumToArray(e: Object, options: enumToArrayOptions | null = null): any[] {
