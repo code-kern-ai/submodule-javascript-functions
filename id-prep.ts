@@ -1,5 +1,5 @@
 
-class IdGenerator {
+export class IdGenerator {
     private static id: number = 0;
     public static getNextId() {
         return ++IdGenerator.id;
