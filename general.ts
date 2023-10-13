@@ -194,7 +194,7 @@ export function getUserAvatarUri(user) {
     return avatarId + ".png";
 }
 
-export function percentRoundString(value: number | string, decimals: number, isZeroToOne: boolean = true) {
+export function percentRoundString(value: number | string, decimals: number = 0, isZeroToOne: boolean = true) {
     if (typeof value == 'number') {
         if (isNaN(value)) return "n/a";
         if (!isFinite(value)) return "0 %";
