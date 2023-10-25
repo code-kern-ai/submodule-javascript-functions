@@ -206,3 +206,8 @@ export function percentRoundString(value: number | string, decimals: number = 0,
     else if (typeof value == 'undefined' || value == null) return "n/a";
     return value;
 }
+
+
+export function isDict(o: any): boolean {
+    return o === Object(o) && !Array.isArray(o) && typeof o !== 'function';
+}

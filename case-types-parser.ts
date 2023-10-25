@@ -1,3 +1,5 @@
+import { isDict } from "./general";
+
 export function capitalizeFirstPerWord(str: string) {
     str = str.replace(/_/g, ' ');
     const parts = str.split(" ");
@@ -32,6 +34,26 @@ export function snakeCaseToCamelCase(str: string) {
             .replace('_', '')
     );
 }
+
+
+export function convertVarToCamel(obj: any) {
+    if (isDict(obj)) {
+        const n = {};
+        Object.keys(obj)
+            .forEach((k) => {
+                n[snakeCaseToCamelCase(k)] = convertVarToCamel(obj[k]);
+            });
+
+        return n;
+    } else if (Array.isArray(obj)) {
+        return obj.map((i) => {
+            return convertVarToCamel(i);
+        });
+    }
+
+    return obj;
+}
+
 
 export enum caseType {
     LOWER,
