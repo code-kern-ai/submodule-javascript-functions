@@ -29,3 +29,7 @@ export function isValidDate(date: string) {
     const d = new Date(date);
     return d.getFullYear() < 2100;
 }
+
+export function timeDiffCalc(dateA: any, dateB: any = Date.now()) {
+    return new Date(Math.abs(dateB - dateA)).toISOString().substring(11, 19);
+}
