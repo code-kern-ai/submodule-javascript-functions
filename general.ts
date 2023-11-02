@@ -186,11 +186,12 @@ export function objectIsEmpty(obj: any): boolean {
     return true;
 }
 
-export function getUserAvatarUri(user) {
+export function getUserAvatarUri(user, prefix?: string) {
     let avatarId = 0;
     if (user && user.firstName && user.lastName) {
         avatarId = (user.firstName[0].charCodeAt(0) + user.lastName[0].charCodeAt(0)) % 5;
     }
+    if (prefix) return prefix + avatarId + ".png";
     return avatarId + ".png";
 }
 
