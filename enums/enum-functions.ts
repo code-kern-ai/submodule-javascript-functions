@@ -1,4 +1,4 @@
-import { DisplayGraphs, InformationSourceType, LabelSource } from "./enums";
+import { DisplayGraphs, InformationSourceType, LabelSource, Slice } from "./enums";
 
 export function informationSourceTypeToString(source: InformationSourceType, short: boolean, forDisplay: boolean = true) {
     if (forDisplay) {
@@ -37,4 +37,17 @@ export function labelSourceToString(source: LabelSource, forDisplay: boolean = t
         }
     }
     return source;
+}
+
+
+export function sliceTypeToString(sliceType: string): string {
+    switch (sliceType) {
+        case Slice.STATIC_DEFAULT:
+            return 'Static Slice';
+        case Slice.STATIC_OUTLIER:
+            return 'Outlier Slice';
+        case Slice.DYNAMIC_DEFAULT:
+            return 'Dynamic Slice';
+        default: return sliceType;
+    }
 }
