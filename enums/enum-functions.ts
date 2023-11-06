@@ -1,4 +1,4 @@
-import { DisplayGraphs, InformationSourceType, LabelSource, Slice } from "./enums";
+import { DisplayGraphs, InformationSourceType, LabelSource, SearchGroup, Slice } from "./enums";
 
 export function informationSourceTypeToString(source: InformationSourceType, short: boolean, forDisplay: boolean = true) {
     if (forDisplay) {
@@ -49,5 +49,21 @@ export function sliceTypeToString(sliceType: string): string {
         case Slice.DYNAMIC_DEFAULT:
             return 'Dynamic Slice';
         default: return sliceType;
+    }
+}
+
+export function nameForGroupKeyToString(group: SearchGroup): string {
+    switch (group) {
+        case SearchGroup.ATTRIBUTES:
+            return 'Attributes';
+        case SearchGroup.USER_FILTER:
+            return 'Users';
+        case SearchGroup.LABELING_TASKS:
+            return 'Labeling task:';
+        case SearchGroup.ORDER_STATEMENTS:
+            return 'Result Order';
+        case SearchGroup.COMMENTS:
+            return 'Comments';
+        default: return group;
     }
 }
