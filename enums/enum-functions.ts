@@ -1,4 +1,4 @@
-import { DisplayGraphs, InformationSourceType, LabelSource, SearchGroup, Slice } from "./enums";
+import { DisplayGraphs, InformationSourceType, LabelSource, SearchGroup, Slice, StaticOrderByKeys } from "./enums";
 
 export function informationSourceTypeToString(source: InformationSourceType, short: boolean, forDisplay: boolean = true) {
     if (forDisplay) {
@@ -65,5 +65,14 @@ export function nameForGroupKeyToString(group: SearchGroup): string {
         case SearchGroup.COMMENTS:
             return 'Comments';
         default: return group;
+    }
+}
+
+export function getOrderByDisplayName(orderByKey: string) {
+    switch (orderByKey) {
+        case StaticOrderByKeys.RANDOM: return "Random";
+        case StaticOrderByKeys.WEAK_SUPERVISION_CONFIDENCE: return "Weak Supervision Confidence";
+        case StaticOrderByKeys.MODEL_CALLBACK_CONFIDENCE: return "Model Callback Confidence";
+        default: return orderByKey; //attributes
     }
 }
