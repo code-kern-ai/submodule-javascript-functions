@@ -32,7 +32,8 @@ export enum SearchGroup {
     LABELING_TASKS = 'LABELING_TASKS',
     ORDER_STATEMENTS = 'ORDER_STATEMENTS',
     USER_FILTER = 'USER_FILTER',
-    COMMENTS = 'COMMENTS'
+    COMMENTS = 'COMMENTS',
+    DRILL_DOWN = 'DRILL_DOWN',
 }
 
 export enum StaticOrderByKeys {
