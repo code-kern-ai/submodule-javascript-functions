@@ -214,3 +214,7 @@ export function percentRoundString(value: number | string, decimals: number = 0,
 export function isDict(o: any): boolean {
     return o === Object(o) && !Array.isArray(o) && typeof o !== 'function';
 }
+
+export function objectDepth(o) {
+    return Object(o) === o ? 1 + Math.max(-1, ...Object.values(o).map(objectDepth)) : 0
+}
