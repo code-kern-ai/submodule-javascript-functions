@@ -74,7 +74,9 @@ export function transferNestedDict(dictA: any, dictB: any, ignoreNoneExistingKey
 
     for (let key in dictA) {
         if (dictB[key] == null && ignoreNoneExistingKeys) continue;
-        if (typeof dictA[key] === 'object') {
+        if (Array.isArray(dictA[key])) {
+            dictB[key] = dictA[key];
+        } else if (typeof dictA[key] === 'object') {
             if (typeof dictB[key] !== 'object') {
                 dictB[key] = {};
             }
@@ -211,4 +213,8 @@ export function percentRoundString(value: number | string, decimals: number = 0,
 
 export function isDict(o: any): boolean {
     return o === Object(o) && !Array.isArray(o) && typeof o !== 'function';
+}
+
+export function objectDepth(o) {
+    return Object(o) === o ? 1 + Math.max(-1, ...Object.values(o).map(objectDepth)) : 0
 }
