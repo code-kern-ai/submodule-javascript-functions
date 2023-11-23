@@ -74,7 +74,9 @@ export function transferNestedDict(dictA: any, dictB: any, ignoreNoneExistingKey
 
     for (let key in dictA) {
         if (dictB[key] == null && ignoreNoneExistingKeys) continue;
-        if (typeof dictA[key] === 'object') {
+        if (Array.isArray(dictA[key])) {
+            dictB[key] = dictA[key];
+        } else if (typeof dictA[key] === 'object') {
             if (typeof dictB[key] !== 'object') {
                 dictB[key] = {};
             }
@@ -186,11 +188,12 @@ export function objectIsEmpty(obj: any): boolean {
     return true;
 }
 
-export function getUserAvatarUri(user) {
+export function getUserAvatarUri(user, prefix?: string) {
     let avatarId = 0;
     if (user && user.firstName && user.lastName) {
         avatarId = (user.firstName[0].charCodeAt(0) + user.lastName[0].charCodeAt(0)) % 5;
     }
+    if (prefix) return prefix + avatarId + ".png";
     return avatarId + ".png";
 }
 
@@ -205,4 +208,13 @@ export function percentRoundString(value: number | string, decimals: number = 0,
     }
     else if (typeof value == 'undefined' || value == null) return "n/a";
     return value;
+}
+
+
+export function isDict(o: any): boolean {
+    return o === Object(o) && !Array.isArray(o) && typeof o !== 'function';
+}
+
+export function objectDepth(o) {
+    return Object(o) === o ? 1 + Math.max(-1, ...Object.values(o).map(objectDepth)) : 0
 }
