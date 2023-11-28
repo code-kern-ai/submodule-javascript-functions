@@ -41,3 +41,8 @@ export enum StaticOrderByKeys {
     WEAK_SUPERVISION_CONFIDENCE = 'WEAK_SUPERVISION_CONFIDENCE',
     RANDOM = 'RANDOM'
 }
+
+export enum InformationSourceReturnType {
+    RETURN = "RETURN",
+    YIELD = "YIELD"
+}
