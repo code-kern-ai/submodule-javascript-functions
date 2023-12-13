@@ -21,6 +21,8 @@ export function jsonFetchWrapper(url: string, fetchType: FetchType, onResult?: (
             hasError = true;
         }
         else return response.json();
+    }, (error) => {
+        console.log("Error in request at " + url);
     });
 
     if (onResult && !hasError) myFetch.then(result => onResult(result));
