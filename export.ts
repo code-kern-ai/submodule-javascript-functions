@@ -31,6 +31,13 @@ export function downloadByteData(byteData: any, filename = 'file.zip', type = 'a
     download(blob, filename);
 }
 
+export function downloadByteDataNoStringify(byteData: any, filename = 'file.zip', type = 'application/octet-stream') {
+    const blob = new Blob([byteData], {
+        type: type
+    });
+    download(blob, filename);
+}
+
 export function downloadJsonData(jsonData: any, filename = 'file.json', type = 'application/json') {
     const blob = new Blob([JSON.stringify(jsonData)], {
         type: type
