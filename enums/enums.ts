@@ -34,6 +34,7 @@ export enum SearchGroup {
     USER_FILTER = 'USER_FILTER',
     COMMENTS = 'COMMENTS',
     DRILL_DOWN = 'DRILL_DOWN',
+    CATEGORY = 'CATEGORY',
 }
 
 export enum StaticOrderByKeys {
