@@ -202,7 +202,7 @@ export function percentRoundString(value: number | string, decimals: number = 0,
         if (isNaN(value)) return "n/a";
         if (!isFinite(value)) return "0 %";
         if (isZeroToOne) value *= 100;
-        if (!decimals) return Math.round(value) + '%';
+        if (!decimals) return Math.round(value) + ' %';
         const dec = 10 ** decimals;
         return Math.round(value * dec) / dec + ' %';
     }
