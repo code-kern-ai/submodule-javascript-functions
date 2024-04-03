@@ -24,9 +24,28 @@ export function capitalizeFirstForClassName(str: string) {
     return parts.join("");
 }
 
+function toSnakeCase(key) {
+    return key.replace(/([A-Z])/g, "_$1").toLowerCase();
+}
+
+export function convertCamelToSnakeCase(obj) {
+    const newObj = {};
+    Object.keys(obj).forEach((key) => {
+        const newKey = toSnakeCase(key);
+        const value = obj[key];
+        if (value && typeof value === 'object' && !Array.isArray(value)) {
+            newObj[newKey] = convertCamelToSnakeCase(value);
+        } else {
+            newObj[newKey] = value;
+        }
+    });
+    return newObj;
+}
+
 export function camelCaseToDashCase(str: string) {
     return str.replace(/[A-Z]/g, m => "-" + m.toLowerCase());
 }
+
 export function snakeCaseToCamelCase(str: string) {
     return str.toLowerCase().replace(/([_][a-z])/g, group =>
         group
@@ -34,7 +53,6 @@ export function snakeCaseToCamelCase(str: string) {
             .replace('_', '')
     );
 }
-
 
 export function convertVarToCamel(obj: any) {
     if (isDict(obj)) {
@@ -53,7 +71,6 @@ export function convertVarToCamel(obj: any) {
 
     return obj;
 }
-
 
 export enum caseType {
     LOWER,
