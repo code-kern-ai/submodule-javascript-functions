@@ -2,8 +2,6 @@ export enum InformationSourceType {
     LABELING_FUNCTION = "LABELING_FUNCTION",
     ACTIVE_LEARNING = "ACTIVE_LEARNING",
     PRE_COMPUTED = "PRE_COMPUTED",
-    ZERO_SHOT = "ZERO_SHOT",
-    CROWD_LABELER = "CROWD_LABELER"
 }
 
 export enum DisplayGraphs {
