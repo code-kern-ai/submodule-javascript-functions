@@ -29,7 +29,6 @@ export function labelSourceToString(source: LabelSource, forDisplay: boolean = t
         switch (source) {
             case LabelSource.MANUAL: return "Manual";
             case LabelSource.WEAK_SUPERVISION: return "Weak Supervision";
-            case LabelSource.MODEL_CALLBACK: return "Model Callback";
             case LabelSource.INFORMATION_SOURCE: return "Information Source";
             default: return source;
         }
@@ -70,7 +69,6 @@ export function getOrderByDisplayName(orderByKey: string) {
     switch (orderByKey) {
         case StaticOrderByKeys.RANDOM: return "Random";
         case StaticOrderByKeys.WEAK_SUPERVISION_CONFIDENCE: return "Weak Supervision Confidence";
-        case StaticOrderByKeys.MODEL_CALLBACK_CONFIDENCE: return "Model Callback Confidence";
         default: return orderByKey; //attributes
     }
 }

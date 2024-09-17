@@ -16,7 +16,6 @@ export enum LabelSource {
     MANUAL = "MANUAL",
     WEAK_SUPERVISION = "WEAK_SUPERVISION",
     INFORMATION_SOURCE = "INFORMATION_SOURCE",
-    MODEL_CALLBACK = "MODEL_CALLBACK",
 }
 
 export enum Slice {
@@ -36,7 +35,6 @@ export enum SearchGroup {
 }
 
 export enum StaticOrderByKeys {
-    MODEL_CALLBACK_CONFIDENCE = "MODEL_CALLBACK_CONFIDENCE",
     WEAK_SUPERVISION_CONFIDENCE = 'WEAK_SUPERVISION_CONFIDENCE',
     RANDOM = 'RANDOM'
 }
