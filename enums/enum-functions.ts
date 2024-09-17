@@ -53,8 +53,6 @@ export function nameForGroupKeyToString(group: SearchGroup): string {
     switch (group) {
         case SearchGroup.ATTRIBUTES:
             return 'Attributes';
-        case SearchGroup.USER_FILTER:
-            return 'Users';
         case SearchGroup.LABELING_TASKS:
             return 'Labeling task:';
         case SearchGroup.ORDER_STATEMENTS:
