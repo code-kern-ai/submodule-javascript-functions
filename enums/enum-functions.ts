@@ -6,8 +6,6 @@ export function informationSourceTypeToString(source: InformationSourceType, sho
             case InformationSourceType.LABELING_FUNCTION: return short ? "LF" : "Labeling Function module";
             case InformationSourceType.ACTIVE_LEARNING: return short ? "AL" : "Active Learning module";
             case InformationSourceType.PRE_COMPUTED: return short ? "PC" : "Pre Computed module";
-            case InformationSourceType.ZERO_SHOT: return short ? "ZS" : "Zero Shot module";
-            case InformationSourceType.CROWD_LABELER: return short ? "CL" : "Crowd labeler";
             default: return source;
         }
     }
@@ -31,7 +29,6 @@ export function labelSourceToString(source: LabelSource, forDisplay: boolean = t
         switch (source) {
             case LabelSource.MANUAL: return "Manual";
             case LabelSource.WEAK_SUPERVISION: return "Weak Supervision";
-            case LabelSource.MODEL_CALLBACK: return "Model Callback";
             case LabelSource.INFORMATION_SOURCE: return "Information Source";
             default: return source;
         }
@@ -56,8 +53,6 @@ export function nameForGroupKeyToString(group: SearchGroup): string {
     switch (group) {
         case SearchGroup.ATTRIBUTES:
             return 'Attributes';
-        case SearchGroup.USER_FILTER:
-            return 'Users';
         case SearchGroup.LABELING_TASKS:
             return 'Labeling task:';
         case SearchGroup.ORDER_STATEMENTS:
@@ -72,7 +67,6 @@ export function getOrderByDisplayName(orderByKey: string) {
     switch (orderByKey) {
         case StaticOrderByKeys.RANDOM: return "Random";
         case StaticOrderByKeys.WEAK_SUPERVISION_CONFIDENCE: return "Weak Supervision Confidence";
-        case StaticOrderByKeys.MODEL_CALLBACK_CONFIDENCE: return "Model Callback Confidence";
         default: return orderByKey; //attributes
     }
 }
