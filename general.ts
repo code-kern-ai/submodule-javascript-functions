@@ -76,7 +76,8 @@ export function transferNestedDict(dictA: any, dictB: any, ignoreNoneExistingKey
         if (dictB[key] == null && ignoreNoneExistingKeys) continue;
         if (Array.isArray(dictA[key])) {
             dictB[key] = dictA[key];
-        } else if (typeof dictA[key] === 'object') {
+        }
+        else if (typeof dictA[key] === 'object' && dictA[key] !== null) {
             if (typeof dictB[key] !== 'object') {
                 dictB[key] = {};
             }
