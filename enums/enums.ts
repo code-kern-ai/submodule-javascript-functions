@@ -5,11 +5,7 @@ export enum InformationSourceType {
 }
 
 export enum DisplayGraphs {
-    ALL = "ALL",
-    CONFUSION_MATRIX = "CONFUSION_MATRIX",
-    INTER_ANNOTATOR = "INTER_ANNOTATOR",
     LABEL_DISTRIBUTION = "LABEL_DISTRIBUTION",
-    CONFIDENCE_DISTRIBUTION = "CONFIDENCE_DISTRIBUTION",
 }
 
 export enum LabelSource {
