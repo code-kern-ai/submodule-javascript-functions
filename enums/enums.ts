@@ -4,10 +4,6 @@ export enum InformationSourceType {
     PRE_COMPUTED = "PRE_COMPUTED",
 }
 
-export enum DisplayGraphs {
-    LABEL_DISTRIBUTION = "LABEL_DISTRIBUTION",
-}
-
 export enum LabelSource {
     MANUAL = "MANUAL",
     WEAK_SUPERVISION = "WEAK_SUPERVISION",

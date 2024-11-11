@@ -1,4 +1,4 @@
-import { DisplayGraphs, InformationSourceType, LabelSource, SearchGroup, Slice, StaticOrderByKeys } from "./enums";
+import { InformationSourceType, LabelSource, SearchGroup, Slice, StaticOrderByKeys } from "./enums";
 
 export function informationSourceTypeToString(source: InformationSourceType, short: boolean, forDisplay: boolean = true) {
     if (forDisplay) {
