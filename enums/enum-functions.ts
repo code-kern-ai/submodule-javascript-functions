@@ -1,4 +1,4 @@
-import { DisplayGraphs, InformationSourceType, LabelSource, SearchGroup, Slice, StaticOrderByKeys } from "./enums";
+import { InformationSourceType, LabelSource, SearchGroup, Slice, StaticOrderByKeys } from "./enums";
 
 export function informationSourceTypeToString(source: InformationSourceType, short: boolean, forDisplay: boolean = true) {
     if (forDisplay) {
@@ -12,17 +12,6 @@ export function informationSourceTypeToString(source: InformationSourceType, sho
     return source;
 }
 
-export function displayGraphsTypeToString(source: DisplayGraphs) {
-    switch (source) {
-
-        case DisplayGraphs.CONFUSION_MATRIX: return "Confusion Matrix";
-        case DisplayGraphs.INTER_ANNOTATOR: return "Inter Annotator";
-        case DisplayGraphs.LABEL_DISTRIBUTION: return "Label Distribution";
-        case DisplayGraphs.CONFIDENCE_DISTRIBUTION: return "Confidence Distribution";
-        case DisplayGraphs.ALL: return "All";
-        default: return source;
-    }
-}
 
 export function labelSourceToString(source: LabelSource, forDisplay: boolean = true) {
     if (forDisplay) {
