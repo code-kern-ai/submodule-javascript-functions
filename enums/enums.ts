@@ -34,3 +34,8 @@ export enum InformationSourceReturnType {
     RETURN = "RETURN",
     YIELD = "YIELD"
 }
+
+export enum AdminMessageLevel {
+    INFO = 'info',
+    WARNING = 'warning'
+};
