@@ -39,3 +39,10 @@ export enum AdminMessageLevel {
     INFO = 'info',
     WARNING = 'warning'
 };
+
+// Small letters because of the BE response
+export enum FeedbackType {
+    POSITIVE = 'positive',
+    NEGATIVE = 'negative',
+    NEUTRAL = 'neutral'
+}
