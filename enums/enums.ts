@@ -46,3 +46,10 @@ export enum FeedbackType {
     NEGATIVE = 'negative',
     NEUTRAL = 'neutral'
 }
+
+export enum ModelsDownloadedStatus {
+    FINISHED = 'finished',
+    DOWNLOADING = 'downloading',
+    INITIALIZING = 'initializing',
+    FAILED = 'failed',
+}
