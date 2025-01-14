@@ -23,7 +23,8 @@ export function jsonFetchWrapper(url: string, fetchType: FetchType, onResult?: (
             hasError = true;
         }
         else {
-            if (response.headers.get("content-type") === "application/json" && Number(response.headers.get("content-length")) > 0) return response.json();
+            const contentType = response.headers.get("content-type");
+            if (contentType && contentType.indexOf("application/json") !== -1) return response.json();
             else return response.text();
         }
     }, (error) => {
