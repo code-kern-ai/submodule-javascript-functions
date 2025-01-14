@@ -16,12 +16,16 @@ export function jsonFetchWrapper(url: string, fetchType: FetchType, onResult?: (
         headers: headers,
         body: body,
     }).then(response => {
+
         if (!response.ok) {
             if (onError) onError(response);
             else throw new Error("Error in request at " + url);
             hasError = true;
         }
-        else return response.json();
+        else {
+            if (response.headers.get("content-type") === "application/json" && Number(response.headers.get("content-length")) > 0) return response.json();
+            else return response.text();
+        }
     }, (error) => {
         console.log("Error in request at " + url);
     });
