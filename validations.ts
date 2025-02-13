@@ -1,3 +1,5 @@
+import { isDict } from "./general";
+
 export function isNameValidForInput(name: string | undefined | null, regexCheck: boolean = false): boolean {
     if (regexCheck) return !!name && name.replace(/\s/g, '') != "";
     else return !!name && name.trim() != "";
@@ -44,4 +46,23 @@ function applyCompareOptions(value: string, list: string[], compareOptions?: Com
         }
     }
     return [value, list];
+}
+
+export function simpleDictCompare(dict1: { [key: string]: any }, dict2: { [key: string]: any }): boolean {
+    if (!dict1 || !dict2) return false;
+    if (dict1 === dict2) return true; //object reference check
+    if (Object.keys(dict1).length !== Object.keys(dict2).length) return false;
+    for (const key in dict1) {
+        if (isDict(dict1[key] && isDict(dict2[key]))) {
+            if (!simpleDictCompare(dict1[key], dict2[key])) return false;
+        } else if (Array.isArray(dict1[key]) && Array.isArray(dict2[key])) {
+            if (dict1[key].length !== dict2[key].length) return false;
+            for (let i = 0; i < dict1[key].length; i++) {
+                if (isDict(dict1[key][i] && isDict(dict2[key][i]))) {
+                    if (!simpleDictCompare(dict1[key][i], dict2[key][i])) return false;
+                } else if (dict1[key][i] !== dict2[key][i]) return false;
+            }
+        } else if (dict1[key] !== dict2[key]) return false;
+    }
+    return true;
 }
