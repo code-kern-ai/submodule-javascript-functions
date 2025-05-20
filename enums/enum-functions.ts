@@ -1,4 +1,4 @@
-import { InformationSourceType, LabelSource, SearchGroup, Slice, StaticOrderByKeys } from "./enums";
+import { InformationSourceType, IntegrationType, LabelSource, SearchGroup, Slice, StaticOrderByKeys } from "./enums";
 
 export function informationSourceTypeToString(source: InformationSourceType, short: boolean, forDisplay: boolean = true) {
     if (forDisplay) {
@@ -58,4 +58,10 @@ export function getOrderByDisplayName(orderByKey: string) {
         case StaticOrderByKeys.WEAK_SUPERVISION_CONFIDENCE: return "Weak Supervision Confidence";
         default: return orderByKey; //attributes
     }
+}
+
+export const INTEGRATIONS_DISPLAY = {
+    [IntegrationType.GITHUB_FILE]: "GitHub File",
+    [IntegrationType.GITHUB_ISSUE]: "GitHub Issue",
+    [IntegrationType.SQL]: "SQL",
 }
