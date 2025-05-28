@@ -57,5 +57,5 @@ export enum ModelsDownloadedStatus {
 export enum IntegrationType {
     GITHUB_ISSUE = 'GITHUB_ISSUE',
     GITHUB_FILE = 'GITHUB_FILE',
-    SQL = 'SQL',
+    SHAREPOINT = 'SHAREPOINT',
 }

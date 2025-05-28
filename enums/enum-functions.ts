@@ -63,5 +63,5 @@ export function getOrderByDisplayName(orderByKey: string) {
 export const INTEGRATIONS_DISPLAY = {
     [IntegrationType.GITHUB_FILE]: "GitHub File",
     [IntegrationType.GITHUB_ISSUE]: "GitHub Issue",
-    [IntegrationType.SQL]: "SQL",
+    [IntegrationType.SHAREPOINT]: "SharePoint",
 }
