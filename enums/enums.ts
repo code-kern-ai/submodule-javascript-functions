@@ -53,3 +53,9 @@ export enum ModelsDownloadedStatus {
     INITIALIZING = 'initializing',
     FAILED = 'failed',
 }
+
+export enum IntegrationType {
+    GITHUB_ISSUE = 'GITHUB_ISSUE',
+    GITHUB_FILE = 'GITHUB_FILE',
+    SHAREPOINT = 'SHAREPOINT',
+}
