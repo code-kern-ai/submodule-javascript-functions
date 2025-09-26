@@ -34,7 +34,7 @@ export function timeDiffCalc(dateA: any, dateB: any = Date.now()) {
     return new Date(Math.abs(dateB - dateA)).toISOString().substring(11, 19);
 }
 
-export function formatTime(s: number) {
+export function formatTimeDigitalClock(s: number) {
     const mm = Math.floor(s / 60);
     const ss = s % 60;
     return `${String(mm).padStart(2, "0")}:${String(ss).padStart(2, "0")}`;
