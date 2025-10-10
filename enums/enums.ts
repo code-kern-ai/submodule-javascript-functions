@@ -59,3 +59,9 @@ export enum IntegrationType {
     GITHUB_FILE = 'GITHUB_FILE',
     SHAREPOINT = 'SHAREPOINT',
 }
+
+export enum UserRole {
+    ENGINEER = "ENGINEER",
+    EXPERT = "EXPERT",
+    ANNOTATOR = "ANNOTATOR",
+}
