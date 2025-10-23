@@ -1,0 +1,23 @@
+
+export const TIME_ZONES = [
+    { name: "UTC", key: "UTC" },
+    { name: "US Eastern Time (New York)", key: "America/New_York" },
+    { name: "US Central Time (Chicago)", key: "America/Chicago" },
+    { name: "US Mountain Time (Denver)", key: "America/Denver" },
+    { name: "US Pacific Time (Los Angeles)", key: "America/Los_Angeles" },
+    { name: "Canada (Toronto)", key: "America/Toronto" },
+    { name: "UK (London)", key: "Europe/London" },
+    { name: "Central European Time (Berlin)", key: "Europe/Berlin" },
+    { name: "Eastern European Time (Athens)", key: "Europe/Athens" },
+    { name: "India Standard Time (New Delhi)", key: "Asia/Kolkata" },
+    { name: "China Standard Time (Beijing)", key: "Asia/Shanghai" },
+    { name: "Japan Standard Time (Tokyo)", key: "Asia/Tokyo" },
+    { name: "Korea Standard Time (Seoul)", key: "Asia/Seoul" },
+    { name: "Australia Eastern Time (Sydney)", key: "Australia/Sydney" },
+    { name: "New Zealand (Auckland)", key: "Pacific/Auckland" },
+    { name: "Brazil (São Paulo)", key: "America/Sao_Paulo" },
+    { name: "Argentina (Buenos Aires)", key: "America/Argentina/Buenos_Aires" },
+    { name: "South Africa (Johannesburg)", key: "Africa/Johannesburg" },
+    { name: "UAE (Dubai)", key: "Asia/Dubai" },
+    { name: "Singapore", key: "Asia/Singapore" },
+];
