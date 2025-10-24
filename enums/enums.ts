@@ -58,6 +58,7 @@ export enum IntegrationType {
     GITHUB_ISSUE = 'GITHUB_ISSUE',
     GITHUB_FILE = 'GITHUB_FILE',
     SHAREPOINT = 'SHAREPOINT',
+    PDF = 'PDF',
 }
 
 export enum UserRole {
