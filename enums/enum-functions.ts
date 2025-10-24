@@ -64,4 +64,5 @@ export const INTEGRATIONS_DISPLAY = {
     [IntegrationType.GITHUB_FILE]: "GitHub File",
     [IntegrationType.GITHUB_ISSUE]: "GitHub Issue",
     [IntegrationType.SHAREPOINT]: "SharePoint",
+    [IntegrationType.PDF]: "PDF",
 }
