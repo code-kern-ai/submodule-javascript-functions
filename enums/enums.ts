@@ -65,3 +65,13 @@ export enum UserRole {
     EXPERT = "EXPERT",
     ANNOTATOR = "ANNOTATOR",
 }
+
+export enum ETLTaskState {
+    UPLOADING = 'UPLOADING',
+    QUEUE = 'QUEUE',
+    EXTRACTING = 'EXTRACTING',
+    TOKENIZING = 'TOKENIZING',
+    SPLITTING = 'SPLITTING',
+    TRANSFORMING = 'TRANSFORMING',
+    FINISHED = 'FINISHED'
+}
