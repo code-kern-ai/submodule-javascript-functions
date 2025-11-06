@@ -41,6 +41,7 @@ export function formatTimeDigitalClock(s: number) {
 }
 
 export function parseTaskDate(dateStr: string): number {
+    if (!dateStr) return null;
     const fixed = dateStr.replace(/(\.\d{3})\d+/, '$1');
     return new Date(fixed + 'Z').getTime();
 }
