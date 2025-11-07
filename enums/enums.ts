@@ -95,7 +95,9 @@ export enum StrategyStepType {
     PYTHON = "PYTHON",
     LLM = "LLM",
     SELECTION = "SELECTION",
-    QUERY_REPHRASING = "QUERY_REPHRASING",
+    QUERY_REPHRASING = "QUERY_REPHRASING", // now more like a common llm, but changing the enum value would break the existing data
+    // INFO: Websearch strategy deactivated until compliance investigation is finished
+    // WEBSEARCH = "WEBSEARCH"
     TRUNCATE_CONTEXT = "TRUNCATE_CONTEXT",
     HEADER = "HEADER",
     TMP_DOC_RETRIEVAL = "TMP_DOC_RETRIEVAL",
@@ -108,4 +110,5 @@ export enum StrategyStepType {
     FULL_TEXT_SEARCH = "FULL_TEXT_SEARCH",
     CURRENT_TIME = "CURRENT_TIME",
     COMPLIANT_WEBSEARCH = "COMPLIANT_WEBSEARCH",
+
 }
