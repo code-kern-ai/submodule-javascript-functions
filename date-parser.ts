@@ -39,3 +39,9 @@ export function formatTimeDigitalClock(s: number) {
     const ss = s % 60;
     return `${String(mm).padStart(2, "0")}:${String(ss).padStart(2, "0")}`;
 }
+
+export function parseTaskDate(dateStr: string): number {
+    if (!dateStr) return null;
+    const fixed = dateStr.replace(/(\.\d{3})\d+/, '$1');
+    return new Date(fixed + 'Z').getTime();
+}

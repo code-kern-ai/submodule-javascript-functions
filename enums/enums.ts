@@ -65,3 +65,50 @@ export enum UserRole {
     EXPERT = "EXPERT",
     ANNOTATOR = "ANNOTATOR",
 }
+
+export enum ETLTaskState {
+    UPLOADING = 'UPLOADING',
+    QUEUE = 'QUEUE',
+    EXTRACTING = 'EXTRACTING',
+    TOKENIZING = 'TOKENIZING',
+    SPLITTING = 'SPLITTING',
+    TRANSFORMING = 'TRANSFORMING',
+    FINISHED = 'FINISHED'
+}
+
+export enum IntegrationsTaskState {
+    UPLOADED = "UPLOADED",
+    AUTOMATICALLY_CREATED = "AUTOMATICALLY_CREATED",
+    INITIAL = "INITIAL",
+    RUNNING = "RUNNING",
+    USABLE = "USABLE",
+    FAILED = "FAILED",
+    INITIALIZING = "INITIALIZING",
+    WAITING = "WAITING",
+    ENCODING = "ENCODING",
+    FINISHED = "FINISHED",
+    QUEUED = "QUEUED",
+}
+
+export enum StrategyStepType {
+    NONE = "NONE",
+    PYTHON = "PYTHON",
+    LLM = "LLM",
+    SELECTION = "SELECTION",
+    QUERY_REPHRASING = "QUERY_REPHRASING", // now more like a common llm, but changing the enum value would break the existing data
+    // INFO: Websearch strategy deactivated until compliance investigation is finished
+    // WEBSEARCH = "WEBSEARCH"
+    TRUNCATE_CONTEXT = "TRUNCATE_CONTEXT",
+    HEADER = "HEADER",
+    TMP_DOC_RETRIEVAL = "TMP_DOC_RETRIEVAL",
+    CALL_OTHER_AGENT = "CALL_OTHER_AGENT",
+    NEURAL_SEARCH = "NEURAL_SEARCH",
+    WEBHOOK = "WEBHOOK",
+    GRAPHRAG_SEARCH = "GRAPHRAG_SEARCH",
+    TEMPLATED = "TEMPLATED",
+    RERANKER = "RERANKER",
+    FULL_TEXT_SEARCH = "FULL_TEXT_SEARCH",
+    CURRENT_TIME = "CURRENT_TIME",
+    COMPLIANT_WEBSEARCH = "COMPLIANT_WEBSEARCH",
+
+}
