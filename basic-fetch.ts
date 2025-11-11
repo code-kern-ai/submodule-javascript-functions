@@ -3,6 +3,7 @@ export enum FetchType {
     POST = "POST",
     PUT = "PUT",
     DELETE = "DELETE",
+    PATCH = "PATCH"
 }
 
 // error logic faulty => does both, error & not error if both are provided

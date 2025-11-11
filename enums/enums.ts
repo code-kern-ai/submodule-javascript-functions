@@ -112,3 +112,8 @@ export enum StrategyStepType {
     COMPLIANT_WEBSEARCH = "COMPLIANT_WEBSEARCH",
 
 }
+
+
+export enum AdminRole {
+    ADMIN = "ADMIN",
+}
