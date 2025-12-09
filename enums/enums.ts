@@ -73,7 +73,8 @@ export enum ETLTaskState {
     TOKENIZING = 'TOKENIZING',
     SPLITTING = 'SPLITTING',
     TRANSFORMING = 'TRANSFORMING',
-    FINISHED = 'FINISHED'
+    FINISHED = 'FINISHED',
+    FAILED = 'FAILED',
 }
 
 export enum IntegrationsTaskState {
