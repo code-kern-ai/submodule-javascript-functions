@@ -1,0 +1,87 @@
+---
+description: Guidelines for developing in the javascript-functions submodule
+globs:
+---
+
+# JavaScript Functions Submodule
+
+This is a shared utility library. Changes here affect all consuming applications.
+
+## File Structure
+
+```
+general.ts          # Core utilities
+case-types-parser.ts # String case conversion
+date-parser.ts      # Date utilities
+validations.ts      # Validation functions
+enums/              # Enum definitions and utilities
+constants.ts        # Shared constants
+```
+
+## Function Guidelines
+
+### Export Pattern
+
+Use named exports:
+
+```typescript
+export function myUtilityFunction(param: string): string {
+  // ...
+}
+```
+
+### Documentation
+
+Use JSDoc comments:
+
+```typescript
+/**
+ * Converts an array to a dictionary.
+ * @param array - The array to convert
+ * @param key - Property to use as key
+ * @returns Dictionary with key-value pairs
+ */
+export function arrayToDict(array: any[], key: string): Record<string, any> {
+  // ...
+}
+```
+
+### Pure Functions
+
+Prefer pure functions without side effects:
+
+```typescript
+// Good - pure function
+export function formatBytes(bytes: number): string { ... }
+
+// Avoid - has side effects
+export function formatAndLog(bytes: number): string {
+  console.log(bytes); // side effect
+  return formatBytes(bytes);
+}
+```
+
+### Type Safety
+
+Use generics where appropriate:
+
+```typescript
+export function jsonCopy<T>(src: T): T {
+  return JSON.parse(JSON.stringify(src));
+}
+```
+
+## Key Functions
+
+- `combineClassNames` - CSS class combining
+- `jsonCopy` - Deep clone
+- `arrayToDict` - Array to dictionary
+- `formatBytes` - File size formatting
+- `enumToArray` - Enum to options
+
+## Testing
+
+When adding or modifying functions:
+1. Ensure backward compatibility
+2. Test edge cases (null, undefined, empty)
+3. Verify TypeScript types
