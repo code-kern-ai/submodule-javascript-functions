@@ -1,6 +1,8 @@
 ---
 description: Guidelines for developing in the javascript-functions submodule
+alwaysApply: true
 globs:
+  - "*"
 ---
 
 # JavaScript Functions Submodule
