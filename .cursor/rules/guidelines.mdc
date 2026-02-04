@@ -1,0 +1,174 @@
+---
+description: Guidelines for developing in the javascript-functions submodule
+alwaysApply: true
+globs:
+  - "*"
+---
+
+# JavaScript Functions Submodule
+
+This is a shared utility library. Changes here affect all consuming applications.
+
+## File Structure
+
+```
+general.ts          # Core utilities
+case-types-parser.ts # String case conversion
+date-parser.ts      # Date utilities
+validations.ts      # Validation functions
+enums/              # Enum definitions and utilities
+constants.ts        # Shared constants
+```
+
+## Function Guidelines
+
+### Export Pattern
+
+Use named exports:
+
+```typescript
+export function myUtilityFunction(param: string): string {
+  // ...
+}
+```
+
+### Documentation
+
+Use JSDoc comments:
+
+```typescript
+/**
+ * Converts an array to a dictionary.
+ * @param array - The array to convert
+ * @param key - Property to use as key
+ * @returns Dictionary with key-value pairs
+ */
+export function arrayToDict(array: any[], key: string): Record<string, any> {
+  // ...
+}
+```
+
+### Pure Functions
+
+Prefer pure functions without side effects:
+
+```typescript
+// Good - pure function
+export function formatBytes(bytes: number): string { ... }
+
+// Avoid - has side effects
+export function formatAndLog(bytes: number): string {
+  console.log(bytes); // side effect
+  return formatBytes(bytes);
+}
+```
+
+### Type Safety
+
+Use generics where appropriate:
+
+```typescript
+export function jsonCopy<T>(src: T): T {
+  return JSON.parse(JSON.stringify(src));
+}
+```
+
+## Key Functions
+
+- `combineClassNames` - CSS class combining
+- `jsonCopy` - Deep clone
+- `arrayToDict` - Array to dictionary
+- `formatBytes` - File size formatting
+- `enumToArray` - Enum to options
+
+## Usage Patterns
+
+### combineClassNames
+
+Combine CSS classes, filtering out falsy values. **Always use this for conditional classes.**
+
+```typescript
+import { combineClassNames } from "@/submodules/javascript-functions/general";
+
+const classes = combineClassNames(
+  "base-class",
+  isActive && "active-class",
+  isDisabled && "opacity-50",
+  customClass
+);
+```
+
+### Disabled State Styling
+
+Use CSS pseudo-classes (`disabled:`) instead of conditional classes for disabled states. The `disabled` attribute must be on the same element as the classes.
+
+```typescript
+// ❌ Avoid conditional classes
+<button 
+  className={isDisabled ? 'opacity-50 cursor-not-allowed' : 'opacity-100 cursor-pointer'}
+  disabled={isDisabled}
+>
+
+// ✅ Use disabled: pseudo-classes
+<button 
+  className="opacity-100 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+  disabled={isDisabled}
+>
+```
+
+**Note:** This works for elements with native `disabled` state (buttons, inputs, etc.), not for divs or other elements without disabled support.
+
+### Static Image Imports
+
+Import static images as modules instead of using string paths. This ensures proper bundling, type checking, and build optimization.
+
+```typescript
+// ❌ Avoid string paths for static images
+<img src="/src/assets/image.png" />
+<img src="@/src/assets/image.png" />
+```
+
+```typescript
+// ✅ Import static images as modules
+import reactImg from '@/src/assets/image.png';
+
+<img src={reactImg} />
+```
+
+**Note:** This applies only to images included in the build (static assets). For dynamic images or external URLs, use string paths as needed.
+
+### extendArrayElementsByUniqueId
+
+Add unique keys to array elements for React rendering. **Never use array indices as keys.**
+
+```typescript
+// ❌ Avoid using array index as key
+{items.map((item, idx) => (
+  <div key={idx}>{item.name}</div>
+))}
+
+// ❌ Avoid using non-unique properties as keys
+{items.map((item) => (
+  <div key={item.name}>{item.name}</div> // name might not be unique
+))}
+```
+
+```typescript
+// ✅ Use extendArrayElementsByUniqueId to add unique keys
+import { extendArrayElementsByUniqueId } from "@/submodules/javascript-functions/general";
+
+const itemsWithKeys = extendArrayElementsByUniqueId(items);
+
+{itemsWithKeys.map((item) => (
+  <div key={item.uniqueId}>{item.name}</div>
+))}
+```
+
+**Rule:** Always use `extendArrayElementsByUniqueId` when iterating over arrays in React. Never use the array index (`idx`) or non-unique properties as keys.
+
+## Testing
+
+When adding or modifying functions:
+1. Ensure backward compatibility
+2. Test edge cases (null, undefined, empty)
+3. Verify TypeScript types
