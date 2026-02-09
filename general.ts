@@ -36,9 +36,19 @@ function getKeyValue(obj: any, key: string) {
     const keys = key.split('.');
     let target = obj;
     keys.forEach((key: string) => {
+        if (target && !isSafeKey(key)) return;
         target = target[key];
     });
     return target;
+}
+
+/**
+ * Checks if a key is safe to use for object access to prevent prototype pollution.
+ * @param key - The key to check
+ * @returns True if the key is safe, false otherwise
+ */
+export function isSafeKey(key: string): boolean {
+    return key !== '__proto__' && key !== 'constructor' && key !== 'prototype';
 }
 
 function getKeyName(key: string) {
