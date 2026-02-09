@@ -1,5 +1,35 @@
 import { capitalizeFirst, capitalizeFirstPerWord, caseType } from "./case-types-parser";
 
+const UNSAFE_KEYS = new Set(['__proto__', 'constructor', 'prototype']);
+
+/**
+ * Safely access obj[key], throwing on prototype-pollution keys.
+ * Use when key comes from user input or dynamic paths (e.g. dot-notation split).
+ * @param obj - Object to read from
+ * @param key - Property key (string or number)
+ * @returns The value at obj[key]
+ */
+export function safeAccess(obj: any, key: string | number): any {
+    if (typeof key === 'string' && UNSAFE_KEYS.has(key)) {
+        throw new Error(`Unsafe key rejected: ${key}`);
+    }
+    return obj[key];
+}
+
+/**
+ * Safely set obj[key] = value, throwing on prototype-pollution keys.
+ * Use when key comes from user input or dynamic paths.
+ * @param obj - Object to write to
+ * @param key - Property key (string or number)
+ * @param value - Value to set
+ */
+export function safeSet(obj: any, key: string | number, value: any): void {
+    if (typeof key === 'string' && UNSAFE_KEYS.has(key)) {
+        throw new Error(`Unsafe key rejected: ${key}`);
+    }
+    obj[key] = value;
+}
+
 export function jsonCopy(src: any): any {
     return JSON.parse(JSON.stringify(src));
 }
@@ -36,7 +66,7 @@ function getKeyValue(obj: any, key: string) {
     const keys = key.split('.');
     let target = obj;
     keys.forEach((key: string) => {
-        target = target[key];
+        target = safeAccess(target, key);
     });
     return target;
 }
