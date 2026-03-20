@@ -58,6 +58,27 @@ export enum IntegrationType {
     GITHUB_ISSUE = 'GITHUB_ISSUE',
     GITHUB_FILE = 'GITHUB_FILE',
     SHAREPOINT = 'SHAREPOINT',
+    WEBPAGE = 'WEBPAGE'
+}
+
+export enum IntegrationState {
+    QUEUE = 'QUEUE',
+    STARTED = 'STARTED',
+    EXTRACTING = 'EXTRACTING',
+    ETL_PROCESSING = 'ETL_PROCESSING',
+    REFINERY_SYNCING = 'REFINERY_SYNCING',
+    FINISHED = 'FINISHED',
+    FAILED = 'FAILED',
+}
+
+export enum IntegrationStateColor {
+    CYAN = 'cyan',
+    BLUE = 'blue',
+    PINK = 'pink',
+    YELLOW = 'yellow',
+    ORANGE = 'orange',
+    GREEN = 'green',
+    RED = 'red',
 }
 
 export enum UserRole {
