@@ -110,6 +110,8 @@ export enum IntegrationsTaskState {
     ENCODING = "ENCODING",
     FINISHED = "FINISHED",
     QUEUED = "QUEUED",
+    REFINERY_SYNCING = "REFINERY_SYNCING",
+    ETL_PROCESSING = "ETL_PROCESSING",
 }
 
 export enum StrategyStepType {
