@@ -135,6 +135,7 @@ export enum StrategyStepType {
     CURRENT_TIME = "CURRENT_TIME",
     COMPLIANT_WEBSEARCH = "COMPLIANT_WEBSEARCH",
     DATA_BLOCK = "DATA_BLOCK",
+    MAPPING = "MAPPING",
 }
 
 
