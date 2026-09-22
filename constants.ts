@@ -5,4 +5,6 @@ export const MODEL_MAP_FULL_NAME = {
     'kimi-latest': 'kimi-latest',
     'kimi-k2.6': 'kimi-k2.6', // still valid; keep for existing configs
     'deepseek-ocr-2': 'deepseek-ocr-2',
+    'glm-latest': 'glm-latest',
+    'glm-flash-latest': 'glm-flash-latest',
 }
